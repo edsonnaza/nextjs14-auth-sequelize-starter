@@ -1,9 +1,10 @@
 'use server';
 
-import { User } from '@/models/associations';
+import { User, Empleados } from '@/models/associations';
 
 export async function syncDb() {
-	await User.sync({ alter: true });
+	await User.sync({ alter: true, force:true});
+	await Empleados.sync({alter:true,force:true})
 }
 
 export async function seedUsers() {
